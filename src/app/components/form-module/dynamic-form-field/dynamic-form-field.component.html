@@ -1,0 +1,41 @@
+<ng-container [formGroup]="form">
+
+  <ng-container [ngSwitch]="field.controlType">
+
+    <ion-item [class.invalid]="!isValid">
+
+      <ng-container *ngSwitchCase="'textbox'">
+        <ion-row class="ion-no-padding ion-no-margin">
+          <ion-col class="ion-no-padding" size="10">
+            <ion-label class="input-label" color="light" position="floating">{{field.label}}</ion-label>
+            <ion-input [formControlName]="field.key" [id]="field.key" [type]="field['type']" [debounce]="debounce">
+            </ion-input>
+          </ion-col>
+          <ion-col class="ion-margin-vertical ion-text-center" size="2">
+            <ion-icon *ngIf="field['eye']" color="medium" [name]="icon" size="small" (click)='hideShow()'></ion-icon>
+          </ion-col>
+        </ion-row>
+        <!-- <ion-label color="light" position="floating">{{field.label}}</ion-label>
+        <ion-input [formControlName]="field.key" [id]="field.key" [type]="field['type']" [placeholder]="field['placeHolder']" [debounce]="debounce"></ion-input>
+        <ion-icon *ngIf="field['eye']" color="medium" slot="end" [name]="icon" (click)='hideShow()'></ion-icon> -->
+      </ng-container>
+
+      <ion-select *ngSwitchCase="'dropdown'" [formControlName]="field.key" [id]="field.key" [type]="field['type']"
+        [value]="field.value" okText="Okay" cancelText="Dismiss" interface="action-sheet">
+        <ion-select-option *ngFor="let opt of field['options']" [value]="opt.key">{{opt.value}}</ion-select-option>
+      </ion-select>
+
+      <ng-container *ngSwitchCase="'toggle'">
+        <ion-label>{{field.label}}</ion-label>
+        <ion-toggle mode="ios" [formControlName]="field.key" [id]="field.key" [type]="field['type']"></ion-toggle>
+      </ng-container>
+
+    </ion-item>
+
+    <p *ngIf="form.controls[this.field.key].pending" class="name-check">{{statusMessage}}</p>
+    <p *ngIf="!isValid && !form.controls[this.field.key].pending" class="error">{{errorMessage}}</p>
+    <p *ngIf="isValid && !form.controls[this.field.key].pending" class="p-place-holder">_</p>
+
+  </ng-container>
+
+</ng-container>

@@ -1,0 +1,38 @@
+ion-grid {
+    background-color: transparent;
+    height: 100%;
+}
+
+ion-row {
+    background-color: transparent;
+    height: 100%;
+}
+
+ion-col {
+    background-color: transparent;
+}
+
+// ion-list {
+//     background-color: transparent;
+// }
+
+// form {
+//     background-color: transparent;
+// }
+
+.reset-button {
+    margin-top: 1%;
+    margin-left: 37.5%;
+    margin-right: 37.5%;
+    background-color: transparent;
+}
+
+.error-message {
+    color: var(--ion-color-danger);
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.error-message-container {
+    text-align: center;
+}

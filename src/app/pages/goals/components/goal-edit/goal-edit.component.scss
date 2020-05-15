@@ -1,0 +1,35 @@
+ion-content {
+  --background: rgb(43, 59, 78);
+}
+
+ion-item {
+  --background: rgb(43, 59, 78);
+}
+
+ion-select{
+  max-width: 70% !important;
+  color: var(--ion-color-light);
+}
+
+ion-label{
+  color: var(--ion-color-light) !important;
+}
+
+:host ::ng-deep ion-input {
+  background: transparent;
+  color: var(--ion-color-light);
+  --padding-start: 8px;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px rgb(43, 59, 78) inset !important;
+      box-shadow: 0 0 0 30px rgb(43, 59, 78) inset !important;
+      -webkit-text-fill-color: var(--ion-color-light) !important;
+      caret-color: var(--ion-color-light);
+  }
+}
+
+.background-color {
+  background-color: rgb(43, 59, 78);
+}

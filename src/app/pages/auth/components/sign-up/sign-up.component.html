@@ -1,0 +1,32 @@
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="form" (ngSubmit)="onSignUp()">
+          <br>
+          <ng-container *ngFor="let field of fields">
+            <app-dynamic-form-field [field]="field" [form]="form" [submitAttempt]="submitAttempt">
+            </app-dynamic-form-field>
+          </ng-container>
+          <ion-button class="submit-button" type="submit" [disabled]="!form.valid" expand="block">
+            Sign Up
+          </ion-button>
+          <ion-note>
+            <p class="password-req-title">Password Requirements</p>
+            <p class="password-req">Must contain one lowercase and uppercase character as well as one number or special charactor</p>
+            <p class="password-req">Length should be between 8 and 20 characters</p>
+          </ion-note>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer class="background-color ion-padding">
+  <div class="ion-justify-content-end ion-align-items-end">
+    <ion-button size="small" class="link-button" fill="clear" expand="full" routerLink="/auth/signin"
+      routerDirection="root">
+      Already have an account yet? Sign in?
+    </ion-button>
+  </div>
+</ion-footer>

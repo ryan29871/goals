@@ -1,0 +1,95 @@
+ion-content {
+  --background: rgb(43, 59, 78);
+}
+
+ion-grid {
+  background-color: transparent;
+  padding: 0;
+}
+
+ion-row {
+  background-color: transparent;
+  // --padding-top: none;
+}
+
+ion-col {
+  background-color: transparent;
+}
+
+ion-avatar {
+  margin: auto;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 200px !important;
+  max-height: 200px !important;
+}
+
+ion-list {
+  background-color: transparent;
+}
+
+:host ::ng-deep ion-item {
+  --background: transparent;
+  --padding-start: 0;
+}
+
+:host ::ng-deep ion-input {
+  background: transparent;
+  color: var(--ion-color-light);
+  --padding-start: 8px;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px rgb(43, 59, 78) inset !important;
+      box-shadow: 0 0 0 30px rgb(43, 59, 78) inset !important;
+      -webkit-text-fill-color: var(--ion-color-light) !important;
+      caret-color: var(--ion-color-light);
+  }
+}
+
+.user-image-container {
+  padding-top: 5%;
+}
+
+.link-button {
+  color: rgb(4, 187, 211);
+}
+
+.submit-button {
+  margin-top: 0%;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: black;
+  font-weight: bold;
+  --background: aqua;
+}
+
+.background-color {
+  background-color: rgb(43, 59, 78);
+}
+
+img {
+  width: 30px;
+}
+
+ion-row {
+  width: 100%;
+}
+
+h4 {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+h5 {
+  color: rgb(4, 187, 211);
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.align-items-center {
+  text-align: center;
+}

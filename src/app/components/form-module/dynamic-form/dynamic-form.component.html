@@ -1,0 +1,18 @@
+<div class="error-message-container">
+  <p *ngIf="submitAttempt && !isValid" class="error-message">Please fill out all details accurately.</p>
+</div>
+
+<ion-list>
+
+  <form [formGroup]="form">
+    <br>
+    <ng-container *ngFor="let field of fields">
+      <app-dynamic-form-field [field]="field" [form]="form" [submitAttempt]="submitAttempt"></app-dynamic-form-field>
+    </ng-container>
+  </form>
+
+</ion-list>
+
+<ion-button class="reset-button" (click)="onReset()" color="danger" expand="block">
+  Reset
+</ion-button>

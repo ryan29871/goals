@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Goals</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="createGoal()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar *ngIf="goalsExist$ | async" placeholder="Filter Goals" (ionInput)="searchGoals($event)">
+  </ion-searchbar>
+  <ion-refresher #refresherRef slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list #goalsList>
+
+    <ion-item-sliding *ngFor="let goal of goals$ | async" #slidingGoal>
+
+      <ion-item detail="false" [routerLink]="['/goals/detail', goal.id]" routerDirection="forward"
+        class="ion-padding-end">
+        <!-- <ion-thumbnail slot="start"><ion-img src="assets/icon/favicon.png"></ion-img></ion-thumbnail> -->
+          <ion-label>
+            <h2>{{goal.title}}</h2>
+            <p>{{goal.description}}</p>
+          </ion-label>
+          <ion-note slot="end">{{goal.status}}<span class="dot"></span></ion-note>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="editGoal(goal, slidingGoal)">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="deleteGoal(goal, slidingGoal)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>

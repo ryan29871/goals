@@ -1,0 +1,39 @@
+<ion-content class="ion-padding">
+    <ion-grid>
+        <ion-row>
+            <ion-col class="user-image-container">
+                <ion-avatar>
+                    <ion-img class="ion-text-center" src="../../assets/img/blank-user.jpg"></ion-img>
+                </ion-avatar>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-no-padding">
+            <ion-col>
+                <form [formGroup]="form" (ngSubmit)="onSignIn()">
+                    <br>
+                    <ng-container *ngFor="let field of fields">
+                        <app-dynamic-form-field [field]="field" [form]="form" [submitAttempt]="submitAttempt">
+                        </app-dynamic-form-field>
+                    </ng-container>
+                    <ion-row class="ion-no-padding">
+                        <ion-col>
+                            <ion-button size="small" class="link-button" fill="clear" expand="full"
+                                routerLink="/auth/signup" routerDirection="root">
+                                Forgot password?
+                            </ion-button>
+                        </ion-col>
+                        <ion-col>
+                            <ion-button size="small" class="link-button" fill="clear" expand="full"
+                                routerLink="/auth/signup" routerDirection="root">
+                                Sign Up
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                    <ion-button class="submit-button" type="submit" [disabled]="!form.valid" expand="block">
+                        <h4>Sign In</h4>
+                    </ion-button>
+                </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
